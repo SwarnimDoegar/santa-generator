@@ -9,6 +9,7 @@ fs.createReadStream('Secret Santa Gift Exchange Sign-Up Form - 2021 (Responses).
   .pipe(csv(["time", "email", "x", "name", "address", "mobile", "wish"]))
   .on('data', (data) => src.push(data))
   .on('end', () => {
+    src.shift()
     process()
   });
 
